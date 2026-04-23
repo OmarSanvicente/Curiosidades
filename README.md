@@ -24,7 +24,8 @@ Simulación del sistema dinámico caótico conocido como Sistema de Lorenz, resu
 * Exploración de comportamiento caótico
 
 **Visualización interactiva:**
-[Clic para Explorar el atractor de Lorenz](https://omarsanvicente.github.io/Curiosidades/Interactive/lorenz_attractor.html)
+
+[Explorar el atractor de Lorenz](https://omarsanvicente.github.io/Curiosidades/Interactive/lorenz_attractor.html)
 ---
 
 ## Tecnologías utilizadas
@@ -36,7 +37,7 @@ Simulación del sistema dinámico caótico conocido como Sistema de Lorenz, resu
 
 ---
 
-## 📌 Objetivo del repositorio
+##  Objetivo del repositorio
 
 Este repositorio no está enfocado en productos finales, sino en:
 
