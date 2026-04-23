@@ -12,18 +12,19 @@ Aquí documento experimentos que combinan:
 ---
 
 ## Proyectos
+[Atractor de Lorenz](#atractor-de-lorenz)
 
 ### Atractor de Lorenz
 
 Simulación del sistema dinámico caótico conocido como Sistema de Lorenz, resuelto numéricamente con `scipy` y visualizado con `plotly`.
 
-**Características:**
+**Características de la exploración de Lorenz:**
 
 * Resolución de ecuaciones diferenciales con `odeint`
 * Visualización 3D interactiva
 * Exploración de comportamiento caótico
 
-**Visualización interactiva:**
+**Visualización interactiva de Lorenz:**
 
 [Explorar el atractor de Lorenz](https://omarsanvicente.github.io/Curiosidades/Interactive/lorenz_attractor.html)
 ---
