@@ -110,7 +110,8 @@ El script genera una gráfica que muestra:
 
 Esto permite observar el comportamiento oscilatorio del péndulo y su dinámica no lineal.
 
-![Movimiento](../Images/pendulum.png)
+![Movimiento Oscilatorio](/Images/pendulum.png)
+*Figura 1:Posición y velocidad angular de un péndulo armónico simple.*
 
 ---
 # Dinámica de poblaciones
@@ -138,11 +139,13 @@ $$
 Finalmente podemos ver las visualizaciones de los dos modelos desplegados:
 Crecimiento bacteriano exponencial:
 
-![Crecimiento bacteriano](../Images/crecimiento_bacteriano_exponencial.png)
+![Crecimiento bacteriano](/Images/crecimiento_bacteriano_exponencial.png)
+*Figura 2: Crecimiento bacteriano bajo modelo exponencial.*
 
 Crecimiento bacteriano exponencial E.Coli
 
-![Crecimiento bacteriano real](../Images/crecimiento_bacteriano_duplicacion.png)
+![Crecimiento bacteriano real](/Images/crecimiento_bacteriano_duplicacion.png)
+*Figura 3: Crecimiento bacteriano bajo modelo exponencial de E. Coli, la población se duplica cada determinado periodo T.*
 ##  Objetivo del repositorio
 
 Este repositorio no está enfocado en productos finales, sino en:
