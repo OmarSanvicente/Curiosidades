@@ -16,6 +16,8 @@ Aquí documento experimentos que combinan:
 + [Atractor de Lorenz](#atractor-de-lorenz)
 
 + [Péndulo simple](#péndulo-simple)
+
++ [Dinámica de Poblaciones](#dinámica-de-poblaciones)
 ---
 ### Atractor de Lorenz
 
@@ -109,7 +111,27 @@ El script genera una gráfica que muestra:
 Esto permite observar el comportamiento oscilatorio del péndulo y su dinámica no lineal.
 
 ---
+# Dinámica de poblaciones
+El objetivo solo es mostrar el funcionamiento de distintos modelos de población.
+## Modelo de crecimiento exponencial o malthusiano
+Este modelo se basa en la suposición de que el crecimiento debe ser siempre creciente y no se detiene con nada, esta suposición es cierta hasta cierto punto y para unas poblaciones es mas real que para otras, pongamos por ejemplo el crecimiento humano, este siempre se vera limitado por el entorno, muchas veces es díficil conseguir alimentos o donde vivir, por lo que el crecimiento se ve "frenado" o relantizado, cada población dependiendo de sus circunstancias tiene un nivel límite al que puede crecer de esta manera.
+### Planteamiento del problema
+El modelo:
+Recordemos la deducción para este tipo de problemas.
+Suponemos que la población crece de modo proporcional al tiempo
 
+
+$$
+\frac{dN(t)}{dt} = k\cdot N(t)
+$$
+
+Donde $k$ es la tasa de crecimiento de la población.
+
+Esto corresponde a una ecuación de variables separables, resolviendo se tiene que:
+
+$$
+N(t) = N_0\cdot e^{kt}
+$$
 ##  Objetivo del repositorio
 
 Este repositorio no está enfocado en productos finales, sino en:
