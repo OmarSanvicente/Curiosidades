@@ -110,6 +110,8 @@ El script genera una gráfica que muestra:
 
 Esto permite observar el comportamiento oscilatorio del péndulo y su dinámica no lineal.
 
+![Movimiento](../Images/pendulum.png)
+
 ---
 # Dinámica de poblaciones
 El objetivo solo es mostrar el funcionamiento de distintos modelos de población.
@@ -132,6 +134,15 @@ Esto corresponde a una ecuación de variables separables, resolviendo se tiene q
 $$
 N(t) = N_0\cdot e^{kt}
 $$
+
+Finalmente podemos ver las visualizaciones de los dos modelos desplegados:
+Crecimiento bacteriano exponencial:
+
+![Crecimiento bacteriano](../Images/crecimiento_bacteriano_exponencial.png)
+
+Crecimiento bacteriano exponencial E.Coli
+
+![Crecimiento bacteriano real](../Images/crecimiento_bacteriano_duplicacion.png)
 ##  Objetivo del repositorio
 
 Este repositorio no está enfocado en productos finales, sino en:
