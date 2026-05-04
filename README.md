@@ -18,6 +18,10 @@ Aquí documento experimentos que combinan:
 + [Péndulo simple](#péndulo-simple)
 
 + [Dinámica de Poblaciones](#dinámica-de-poblaciones)
+    + [Modelo de crecimiento exponencial](#modelo-de-crecimiento-exponencial-o-malthusiano)
+
+    + [Modelo de crecimiento logístico](#modelo-de-crecimiento-lógistico-o-ecuación-de-verhulst)
+    
 ---
 ### Atractor de Lorenz
 
@@ -41,7 +45,7 @@ Simulación del sistema dinámico caótico conocido como Sistema de Lorenz, resu
 
 Este proyecto modela y simula el comportamiento dinámico de un **péndulo simple** mediante la solución numérica de una ecuación diferencial ordinaria (EDO). Se utiliza integración numérica para analizar la evolución temporal del sistema.
 
----
+
 
 ### Planteamiento del problema
 
@@ -58,7 +62,7 @@ Donde:
 - $\theta(t)$: ángulo del péndulo respecto a la vertical  
 - $g$: aceleración de la gravedad  
 - $l$: longitud del péndulo  
----
+
 
 ### Reformulación del sistema
 
@@ -74,7 +78,6 @@ $$
 Donde:
 $\omega$: velocidad angular  
 
----
 
 ### Parámetros del modelo
 
@@ -99,7 +102,7 @@ $$
 
 con 100 puntos de discretización.
 
----
+
 
 ### Resultados
 
@@ -146,6 +149,133 @@ Crecimiento bacteriano exponencial E.Coli
 
 ![Crecimiento bacteriano real](/Images/crecimiento_bacteriano_duplicacion.png)
 *Figura 3: Crecimiento bacteriano bajo modelo exponencial de E. Coli, la población se duplica cada determinado periodo T.*
+
+
+## Modelo de crecimiento lógistico o ecuación de Verhulst
+
+El modelo de crecimiento exponencial:
+
+$$
+\frac{dN}{dt} = rN
+$$
+
+describe un crecimiento ilimitado, lo cual no es realista en sistemas donde existen restricciones de recursos.
+
+
+
+## 2. Formulación del modelo logístico
+
+Para incorporar limitaciones, se introduce un factor de saturación:
+
+$$
+\left(1 - \frac{N}{K}\right)
+$$
+
+donde:
+- $ N(t) $: tamaño de la población
+- $  r $: tasa de crecimiento intrínseca
+- $ K $: capacidad de carga
+
+La ecuación de Verhulst queda:
+
+$$
+\frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right)
+$$
+
+---
+
+## 🔧 3. Solución de la ecuación diferencial
+
+### Paso 1: Separación de variables
+
+$$
+\frac{dN}{N(1 - N/K)} = r\,dt
+$$
+
+
+
+### Paso 2: Fracciones parciales
+
+$$
+\frac{1}{N(1 - N/K)} = \frac{1}{N} + \frac{1}{K - N}
+$$
+
+
+
+### Paso 3: Integración
+
+$$
+\int \left( \frac{1}{N} + \frac{1}{K - N} \right) dN = \int r\,dt
+$$
+
+$$
+\ln|N| - \ln|K - N| = rt + C
+$$
+
+
+
+### Paso 4: Simplificación
+
+$$
+\ln\left(\frac{N}{K - N}\right) = rt + C
+$$
+
+
+
+### Paso 5: Solución explícita
+
+$$
+\frac{N}{K - N} = Ae^{rt}
+$$
+
+$$
+N(t) = \frac{K}{1 + Ae^{-rt}}
+$$
+
+donde $ A $ depende de la condición inicial.
+
+Si tomamos $N(0) = N_0 $
+
+Haciendo un poco de álgebra tendremos que:
+
+$$
+N = \frac{N_0\cdot K\cdot e^{rt}}{K+N_0( e^{rt}-1)}
+$$
+---
+## 4. Interpretación
+
+La solución es una función sigmoide con tres fases:
+
+1. Crecimiento exponencial inicial $ N \ll K $
+2. Desaceleración por competencia  
+3. Saturación $ N \to K $
+
+Además:
+
+$$
+\lim_{t \to \infty} N(t) = K
+$$
+
+---
+
+## 5. Interpretación estructural
+
+La ecuación también puede escribirse como:
+
+$$
+\frac{dN}{dt} = rN - \frac{r}{K}N^2
+$$
+
+- $rN $: crecimiento
+- $ -\frac{r}{K}N^2 $: competencia entre individuos
+
+Se puede observar en las familias de soluciones del modelo logístico que una población siempre estara sujeta al nivel de carga sinergetica que pueda soportar el sistema, esto quiere decir que el crecimiento siempre estara regulado.
+
+![Crecimiento Logistico](/Images/familias_logistico.png)
+*Figura 4: Crecimiento y decrecimiento de poblaciones, cuando una poblacion inicia por encima del nivel de carga sinergetica, esta decrece hasta el nivel de carga sinergetica del sistema, cuando por el contrario la población inicia por debajo del nivel de carga sinergetica, esta puede crecer hasta el nivel de carga sinergetica $K$ del sistema.*
+
+---
+
 ##  Objetivo del repositorio
 
 Este repositorio no está enfocado en productos finales, sino en:
