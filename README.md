@@ -21,7 +21,7 @@ Aquí documento experimentos que combinan:
     + [Modelo de crecimiento exponencial](#modelo-de-crecimiento-exponencial-o-malthusiano)
 
     + [Modelo de crecimiento logístico](#modelo-de-crecimiento-lógistico-o-ecuación-de-verhulst)
-    
+
 ---
 ### Atractor de Lorenz
 
@@ -271,8 +271,16 @@ $$
 
 Se puede observar en las familias de soluciones del modelo logístico que una población siempre estara sujeta al nivel de carga sinergetica que pueda soportar el sistema, esto quiere decir que el crecimiento siempre estara regulado.
 
-![Crecimiento Logistico](/Images/familias_logistico.png)
+![Familia de curvas del crecimiento logístico](/Images/familias_logistico.png)
 *Figura 4: Crecimiento y decrecimiento de poblaciones, cuando una poblacion inicia por encima del nivel de carga sinergetica, esta decrece hasta el nivel de carga sinergetica del sistema, cuando por el contrario la población inicia por debajo del nivel de carga sinergetica, esta puede crecer hasta el nivel de carga sinergetica $K$ del sistema.*
+
+
+Lo que estamos observando aquí es un atractor global, todas las soluciones (excepto $N=0$) convergen al valor $K$, tambien podemos verlo en su forma mas general en un plano fase:
+
+
+![Familia de curvas del crecimiento logístico](/Images/diagrama_fase_flujo.png)
+*Figura 5: Aquí podemos ver claramente (por la dirección de las flechas) que el repulsor es $N=0$ y el atractor es cuando $N=K$ (podemos notarlo en el cambio de dirección.*
+
 
 ---
 
