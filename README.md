@@ -15,6 +15,7 @@ Este repositorio documenta experimentos que combinan:
 
 ### 🔹 Sistemas dinámicos
 [Atractor de Lorenz](#atractor-de-lorenz)
+
 [Péndulo simple](#péndulo-simple)
 
 ### 🔹 Dinámica de poblaciones
