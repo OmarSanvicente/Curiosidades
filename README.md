@@ -14,17 +14,20 @@ Este repositorio documenta experimentos que combinan:
 ## 📂 Índice
 
 ### 🔹 Sistemas dinámicos
-- [Atractor de Lorenz](#atractor-de-lorenz)
-- [Péndulo simple](#péndulo-simple)
+[Atractor de Lorenz](#atractor-de-lorenz)
+[Péndulo simple](#péndulo-simple)
 
 ### 🔹 Dinámica de poblaciones
-- [Crecimiento exponencial](#modelo-de-crecimiento-exponencial)
-- [Crecimiento logístico](#modelo-de-crecimiento-logístico)
-- [Crecimiento con umbral](#modelo-de-crecimiento-con-umbral)
+[Crecimiento exponencial](#modelo-de-crecimiento-exponencial)
 
+[Crecimiento logístico](#modelo-de-crecimiento-logístico)
+
+[Crecimiento con umbral](#modelo-de-crecimiento-con-umbral)
+
+[Crecimiento logístico con umbral](#modelo)
 ---
 
-# 🌀 Atractor de Lorenz
+# Atractor de Lorenz
 
 Simulación del sistema dinámico caótico de Lorenz, resuelto numéricamente con `scipy` y visualizado con `plotly`.
 
@@ -38,7 +41,7 @@ Simulación del sistema dinámico caótico de Lorenz, resuelto numéricamente co
 
 ---
 
-# ⏳ Péndulo simple
+# Péndulo simple
 
 ## Planteamiento
 
@@ -83,11 +86,11 @@ $$
 
 ---
 
-# 📈 Dinámica de poblaciones
+# Dinámica de poblaciones
 
 ---
 
-## 📌 Modelo de crecimiento exponencial
+## Modelo de crecimiento exponencial
 
 $$
 \frac{dN}{dt} = kN
@@ -105,7 +108,7 @@ $$
 
 ---
 
-## 📌 Modelo de crecimiento logístico
+## Modelo de crecimiento logístico
 
 $$
 \frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right)
@@ -136,7 +139,7 @@ $$
 
 ---
 
-## 📌 Modelo de crecimiento con umbral
+## Modelo de crecimiento con umbral
 
 $$
 \frac{dP}{dt} = -r P \left(1 - \frac{P}{T}\right)
@@ -178,6 +181,50 @@ Este modelo introduce un **umbral crítico**:
 - $P = T$ es un punto crítico inestable
 
 ![Diagrama Fase del crecimiento con Umbral](/Images/diagrama_fase_umbral.png)
+
+## Modelo logístico con umbral
+
+$$
+\frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right)\left(\frac{N}{A} - 1\right)
+$$
+
+Este modelo combina:
+- saturación (capacidad de carga $K$)
+- umbral crítico $A$
+
+### Comportamiento
+
+- $N < A$ → la población colapsa a 0  
+- $N > A$ → la población crece hacia $K$  
+
+![Familia de soluciones modelo de crecimiento logístico con umbral](/Images/familias_soluciones_logistico_umbral.png)
+
+
+### Equilibrios
+
+- $N = 0$ → estable  
+- $N = A$ → inestable  
+- $N = K$ → estable  
+
+![Diagrama fase del modelo de crecimiento logístico con umbral](/Images/diagrama_fase_logistico_umbral.png)
+
+
+El sistema presenta **bistabilidad**: dos estados posibles dependiendo de la condición inicial.
+
+Se presenta un repulsor en $A$, si la población no alcanza a pasar este umbral la población estara destinada a la extinción.
+
+Por otro lado se presenta un atractor, el límite de carga sinergetica $K$ el cual es el límite natural del ambiente para albergar esta población.
+
+Es importante hacer notar que este modelo es un modelo más realista e incluso se ha usado para analizar poblaciones
+
+"*...Aparentemente, un modelo de esta clase general rigió la población de palomas viajeras, que existía en Estados Unidos en grandes números hasta fines del siglo XIX. Estas palomas fueron intensamente cazadas para alimentación y por deporte y, como consecuencia, el número de ellas se redujo drásticamente hacia la década de 1880. Sin embargo, parece que esta paloma pudo multiplicarse bien sólo cuando existió en grandes concentraciones, lo cual corresponde a un umbral $T$ relativamente alto. Aunque a fines de la década de 1880 permanecían vivos un número razonablemente grande de estos pájaros por separado, no existían los suficientes en algún lugar como para permitir que se reprodujeran con éxito, por lo que la población disminuyó con rapidez hasta extinguirse. La última sobreviviente murió en 1914. La disminución precipitada de la población de la paloma viajera desde grandes cantidades hasta la extinción en poco más de tres décadas fue uno de los primeros factores que contribuyeron al interés por la conservación en Estados Unidos...*"
+
+Boyce - Diprima. Ecuaciones diferenciales con problemas de valores en la frontera.
+
+
+
+---
+
 ---
 
 # 🎯 Objetivo del repositorio
