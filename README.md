@@ -26,6 +26,7 @@ Este repositorio documenta experimentos que combinan:
 [Crecimiento con umbral](#modelo-de-crecimiento-con-umbral)
 
 [Crecimiento logístico con umbral](#modelo)
+
 ---
 
 # Atractor de Lorenz
