@@ -1,72 +1,61 @@
-# Curiosidades (Modelos, Simulación y Visualización)
+# 📊 Curiosidades: Modelos, Simulación y Visualización
 
 Repositorio personal donde exploro modelos matemáticos, simulaciones y visualizaciones interactivas con Python.
 
-Aquí documento experimentos que combinan:
+Este repositorio documenta experimentos que combinan:
 
-* Sistemas dinámicos
-* Análisis numérico
-* Visualización interactiva
-* Visualización
+- Sistemas dinámicos  
+- Análisis numérico  
+- Visualización científica  
+- Simulación computacional  
+
+---
+
+## 📂 Índice
+
+### 🔹 Sistemas dinámicos
+- [Atractor de Lorenz](#atractor-de-lorenz)
+- [Péndulo simple](#péndulo-simple)
+
+### 🔹 Dinámica de poblaciones
+- [Crecimiento exponencial](#modelo-de-crecimiento-exponencial)
+- [Crecimiento logístico](#modelo-de-crecimiento-logístico)
+- [Crecimiento con umbral](#modelo-de-crecimiento-con-umbral)
 
 ---
 
-# Proyectos
+# 🌀 Atractor de Lorenz
 
-+ [Atractor de Lorenz](#atractor-de-lorenz)
+Simulación del sistema dinámico caótico de Lorenz, resuelto numéricamente con `scipy` y visualizado con `plotly`.
 
-+ [Péndulo simple](#péndulo-simple)
+### Características
+- Resolución de EDOs con `odeint`
+- Visualización 3D interactiva
+- Exploración de comportamiento caótico
 
-+ [Dinámica de Poblaciones](#dinámica-de-poblaciones)
-    + [Modelo de crecimiento exponencial](#modelo-de-crecimiento-exponencial-o-malthusiano)
-
-    + [Modelo de crecimiento logístico](#modelo-de-crecimiento-lógistico-o-ecuación-de-verhulst)
-
----
-### Atractor de Lorenz
-
-Simulación del sistema dinámico caótico conocido como Sistema de Lorenz, resuelto numéricamente con `scipy` y visualizado con `plotly`.
-
-**Características de la exploración de Lorenz:**
-
-* Resolución de ecuaciones diferenciales con `odeint`
-* Visualización 3D interactiva
-* Exploración de comportamiento caótico
-
-**Visualización interactiva de Lorenz:**
-
-[Explorar el atractor de Lorenz (interactivo)](https://omarsanvicente.github.io/Curiosidades/Interactive/lorenz_attractor.html)
-
+### Visualización interactiva
+[Explorar el atractor de Lorenz](https://omarsanvicente.github.io/Curiosidades/Interactive/lorenz_attractor.html)
 
 ---
-# Péndulo simple
 
-## Simulación de un Péndulo Simple
+# ⏳ Péndulo simple
 
-Este proyecto modela y simula el comportamiento dinámico de un **péndulo simple** mediante la solución numérica de una ecuación diferencial ordinaria (EDO). Se utiliza integración numérica para analizar la evolución temporal del sistema.
+## Planteamiento
 
-
-
-### Planteamiento del problema
-
-Un péndulo simple consiste en una masa puntual suspendida de un hilo inextensible y sin masa, bajo la acción de la gravedad.
-
-El sistema se describe mediante la siguiente ecuación diferencial no lineal:
+El sistema está gobernado por:
 
 $$
 \frac{d^2 \theta}{dt^2} + \frac{g}{l} \sin(\theta) = 0
 $$
 
-Donde:
+### Variables
+- $\theta(t)$: ángulo  
+- $g$: gravedad  
+- $l$: longitud  
 
-- $\theta(t)$: ángulo del péndulo respecto a la vertical  
-- $g$: aceleración de la gravedad  
-- $l$: longitud del péndulo  
+---
 
-
-### Reformulación del sistema
-
-Para resolver esta ecuación con métodos numéricos, se transforma en un sistema de primer orden:
+## Reformulación
 
 $$
 \begin{cases}
@@ -75,228 +64,136 @@ $$
 \end{cases}
 $$
 
-Donde:
-$\omega$: velocidad angular  
+---
 
+## Parámetros
 
-### Parámetros del modelo
-
-| Parámetro | Valor | Descripción |
-|----------|------|------------|
-| $g$ | 9.81 m/s² | Gravedad |
-| $l$ | 1.0 m | Longitud del péndulo |
-| $\theta_0$ | $\frac{\pi}{4}$ | Ángulo inicial |
-| $\omega_0$ | 0.0 | Velocidad angular inicial |
+| Parámetro | Valor |
+|----------|------|
+| $g$ | 9.81 |
+| $l$ | 1.0 |
+| $\theta_0$ | $\pi/4$ |
+| $\omega_0$ | 0 |
 
 ---
 
-### Método de solución
+## Resultado
 
-Se utiliza la función `odeint` de la librería **SciPy**, que implementa métodos de integración para sistemas de ecuaciones diferenciales ordinarias.
-
-El sistema se evalúa en un intervalo de tiempo de:
-
-$$
-t \in [0, 10]
-$$
-
-con 100 puntos de discretización.
-
-
-
-### Resultados
-
-El script genera una gráfica que muestra:
-
-- Evolución del ángulo $\theta(t)$
-- Evolución de la velocidad angular $\omega(t)$
-
-Esto permite observar el comportamiento oscilatorio del péndulo y su dinámica no lineal.
-
-![Movimiento Oscilatorio](/Images/pendulum.png)
-*Figura 1:Posición y velocidad angular de un péndulo armónico simple.*
+![Péndulo](/Images/pendulum.png)
 
 ---
-# Dinámica de poblaciones
-El objetivo solo es mostrar el funcionamiento de distintos modelos de población.
-## Modelo de crecimiento exponencial o malthusiano
-Este modelo se basa en la suposición de que el crecimiento debe ser siempre creciente y no se detiene con nada, esta suposición es cierta hasta cierto punto y para unas poblaciones es mas real que para otras, pongamos por ejemplo el crecimiento humano, este siempre se vera limitado por el entorno, muchas veces es díficil conseguir alimentos o donde vivir, por lo que el crecimiento se ve "frenado" o relantizado, cada población dependiendo de sus circunstancias tiene un nivel límite al que puede crecer de esta manera.
-### Planteamiento del problema
-El modelo:
-Recordemos la deducción para este tipo de problemas.
-Suponemos que la población crece de modo proporcional al tiempo
 
+# 📈 Dinámica de poblaciones
+
+---
+
+## 📌 Modelo de crecimiento exponencial
 
 $$
-\frac{dN(t)}{dt} = k\cdot N(t)
+\frac{dN}{dt} = kN
 $$
 
-Donde $k$ es la tasa de crecimiento de la población.
-
-Esto corresponde a una ecuación de variables separables, resolviendo se tiene que:
+Solución:
 
 $$
-N(t) = N_0\cdot e^{kt}
+N(t) = N_0 e^{kt}
 $$
 
-Finalmente podemos ver las visualizaciones de los dos modelos desplegados:
-Crecimiento bacteriano exponencial:
+### Ejemplo
 
-![Crecimiento bacteriano](/Images/crecimiento_bacteriano_exponencial.png)
-*Figura 2: Crecimiento bacteriano bajo modelo exponencial.*
+![Exponencial](/Images/crecimiento_bacteriano_exponencial.png)
 
-Crecimiento bacteriano exponencial E.Coli
+---
 
-![Crecimiento bacteriano real](/Images/crecimiento_bacteriano_duplicacion.png)
-*Figura 3: Crecimiento bacteriano bajo modelo exponencial de E. Coli, la población se duplica cada determinado periodo T.*
-
-
-## Modelo de crecimiento lógistico o ecuación de Verhulst
-
-El modelo de crecimiento exponencial:
-
-$$
-\frac{dN}{dt} = rN
-$$
-
-describe un crecimiento ilimitado, lo cual no es realista en sistemas donde existen restricciones de recursos.
-
-
-
-## 2. Formulación del modelo logístico
-
-Para incorporar limitaciones, se introduce un factor de saturación:
-
-$$
-\left(1 - \frac{N}{K}\right)
-$$
-
-donde:
-- $ N(t) $: tamaño de la población
-- $  r $: tasa de crecimiento intrínseca
-- $ K $: capacidad de carga
-
-La ecuación de Verhulst queda:
+## 📌 Modelo de crecimiento logístico
 
 $$
 \frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right)
 $$
 
----
+### Interpretación
+- Crecimiento inicial exponencial  
+- Saturación en $K$  
+- Competencia interna  
 
-## 🔧 3. Solución de la ecuación diferencial
-
-### Paso 1: Separación de variables
-
-$$
-\frac{dN}{N(1 - N/K)} = r\,dt
-$$
-
-
-
-### Paso 2: Fracciones parciales
-
-$$
-\frac{1}{N(1 - N/K)} = \frac{1}{N} + \frac{1}{K - N}
-$$
-
-
-
-### Paso 3: Integración
-
-$$
-\int \left( \frac{1}{N} + \frac{1}{K - N} \right) dN = \int r\,dt
-$$
-
-$$
-\ln|N| - \ln|K - N| = rt + C
-$$
-
-
-
-### Paso 4: Simplificación
-
-$$
-\ln\left(\frac{N}{K - N}\right) = rt + C
-$$
-
-
-
-### Paso 5: Solución explícita
-
-$$
-\frac{N}{K - N} = Ae^{rt}
-$$
+### Solución
 
 $$
 N(t) = \frac{K}{1 + Ae^{-rt}}
 $$
 
-donde $ A $ depende de la condición inicial.
-
-Si tomamos $N(0) = N_0 $
-
-Haciendo un poco de álgebra tendremos que:
-
-$$
-N = \frac{N_0\cdot K\cdot e^{rt}}{K+N_0( e^{rt}-1)}
-$$
 ---
-## 4. Interpretación
 
-La solución es una función sigmoide con tres fases:
+### Visualización
 
-1. Crecimiento exponencial inicial $ N \ll K $
-2. Desaceleración por competencia  
-3. Saturación $ N \to K $
-
-Además:
-
-$$
-\lim_{t \to \infty} N(t) = K
-$$
+![Logístico](/Images/familias_logistico.png)
 
 ---
 
-## 5. Interpretación estructural
+### Plano fase
 
-La ecuación también puede escribirse como:
-
-$$
-\frac{dN}{dt} = rN - \frac{r}{K}N^2
-$$
-
-- $rN $: crecimiento
-- $ -\frac{r}{K}N^2 $: competencia entre individuos
-
-Se puede observar en las familias de soluciones del modelo logístico que una población siempre estara sujeta al nivel de carga sinergetica que pueda soportar el sistema, esto quiere decir que el crecimiento siempre estara regulado.
-
-![Familia de curvas del crecimiento logístico](/Images/familias_logistico.png)
-*Figura 4: Crecimiento y decrecimiento de poblaciones, cuando una poblacion inicia por encima del nivel de carga sinergetica, esta decrece hasta el nivel de carga sinergetica del sistema, cuando por el contrario la población inicia por debajo del nivel de carga sinergetica, esta puede crecer hasta el nivel de carga sinergetica $K$ del sistema.*
-
-
-Lo que estamos observando aquí es un atractor global, todas las soluciones (excepto $N=0$) convergen al valor $K$, tambien podemos verlo en su forma mas general en un plano fase:
-
-
-![Familia de curvas del crecimiento logístico](/Images/diagrama_fase_flujo.png)
-*Figura 5: Aquí podemos ver claramente (por la dirección de las flechas) que el repulsor es $N=0$ y el atractor es cuando $N=K$ (podemos notarlo en el cambio de dirección.*
-
+![Plano fase](/Images/diagrama_fase_flujo.png)
 
 ---
 
-##  Objetivo del repositorio
+## 📌 Modelo de crecimiento con umbral
 
-Este repositorio no está enfocado en productos finales, sino en:
+$$
+\frac{dP}{dt} = -r P \left(1 - \frac{P}{T}\right)
+$$
 
-* Explorar conceptos matemáticos aplicados
-* Desarrollar intuición sobre modelos dinámicos
-* Construir visualizaciones que faciliten la interpretación
+### Interpretación
+
+- $P < T$ → extinción  
+- $P > T$ → crecimiento sin límite  
 
 ---
-## Tecnologías utilizadas
 
-* Python
-* NumPy
-* SciPy
-* Plotly
+### Equilibrios
 
+- $P = 0$ → estable  
+- $P = T$ → inestable  
+
+---
+
+### Solución
+
+$$
+P(t) = \frac{T P_0}{(T - P_0)e^{rt} + P_0}
+$$
+
+---
+
+### Interpretación
+
+Este modelo introduce un **umbral crítico**:
+
+- Si la población cae por debajo de $T$, no se recupera  
+- Representa un **tipping point**  
+
+![Crecimiento con Umbral](/Images/Crecimiento_umbral.png)
+
+- Si $P < T$ → la población decrece hacia 0
+- Si $P > T$ → la población crece sin límite
+- $P = T$ es un punto crítico inestable
+
+![Diagrama Fase del crecimiento con Umbral](/Images/diagrama_fase_umbral.png)
+---
+
+# 🎯 Objetivo del repositorio
+
+Este repositorio está enfocado en:
+
+- Explorar modelos matemáticos  
+- Desarrollar intuición en sistemas dinámicos  
+- Construir visualizaciones interpretables  
+
+---
+
+# 🛠️ Tecnologías
+
+- Python  
+- NumPy  
+- SciPy  
+- Matplotlib  
+- Plotly  
